@@ -1,9 +1,9 @@
 #!/bin/bash
 
-soft='GLPI - Example plugin'
-version='0.84'
+soft='GLPI - Telegram bot plugin'
+version='1.0.0'
 email=glpi-translation@gna.org
-copyright='INDEPNET Development Team'
+copyright='Truly Systems'
 
 #xgettext *.php */*.php -copyright-holder='$copyright' --package-name=$soft --package-version=$version --msgid-bugs-address=$email -o locales/en_GB.po -L PHP --from-code=UTF-8 --force-po  -i --keyword=_n:1,2 --keyword=__ --keyword=_e
 
@@ -15,7 +15,7 @@ xgettext *.php */*.php -o locales/glpi.pot -L PHP --add-comments=TRANS --from-co
 
 
 ### for using tx :
-##tx set --execute --auto-local -r GLPI_example.glpi-084-current 'locales/<lang>.po' --source-lang en --source-file locales/glpi.pot
+##tx set --execute --auto-local -r GLPI_telegrambot.glpi-090-current 'locales/<lang>.po' --source-lang en --source-file locales/glpi.pot
 ## tx push -s
 ## tx pull -a
 
