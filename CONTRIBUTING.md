@@ -259,9 +259,10 @@ TODO: check all source code
 
 ## quotes / double quotes[¶](#quotes-double-quotes)
 
-`echo 'dqmkdqmsl';
+```PHP
+echo 'dqmkdqmsl';
 echo 'toto'.$test.' est vivant';
-`
+```
 
 After reading bench about strings: [http://www.estvideo.net/dew/index/page/phpbench](http://www.estvideo.net/dew/index/page/phpbench)  
 - Best choice seems to be simple quote.  
@@ -298,8 +299,7 @@ TODO: check all files
 
 Capital letter:
 
-`COMPUTER_TYPE
-`
+`COMPUTER_TYPE`
 
 STATE: accepted
 
