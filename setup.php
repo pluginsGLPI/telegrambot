@@ -52,7 +52,7 @@ function plugin_version_telegrambot() {
 // Check prerequisites before install the plugin
 function plugin_telegrambot_check_prerequisites() {
    if(version_compare(GLPI_VERSION, '0.90', 'lt')) {
-      echo "This plugin requires GLPI >= 0.90";
+      echo _e("This plugin requires GLPI >= 0.90", 'telegrambot');
       return false;
    }
 
