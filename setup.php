@@ -3,7 +3,7 @@
 * @version $Id: HEADER 15930 2011-10-25 10:47:55Z jmd $
 -------------------------------------------------------------------------
 GLPI - Gestionnaire Libre de Parc Informatique
-Copyright (C) 2003-2011 by the INDEPNET Development Team.
+Copyright (C) 2003-2016 by the INDEPNET Development Team.
 
 http://indepnet.net/   http://glpi-project.org
 -------------------------------------------------------------------------
@@ -52,7 +52,7 @@ function plugin_version_telegrambot() {
 // Check prerequisites before install the plugin
 function plugin_telegrambot_check_prerequisites() {
    if(version_compare(GLPI_VERSION, '0.90', 'lt')) {
-      echo "This plugin requires GLPI >= 0.90";
+      echo _e("This plugin requires GLPI >= 0.90", 'telegrambot');
       return false;
    }
 
