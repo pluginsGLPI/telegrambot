@@ -11,7 +11,7 @@ but comment each line with //
 
 3 spaces
 
-Line width : 100
+Line width: 100
 
 ```PHP
 <?php
@@ -22,7 +22,7 @@ Line width : 100
 // base level
 ```
 
-STATE: accepted : 3 spaces / 100 chars max
+STATE: accepted: 3 spaces / 100 chars max
 
 <a name="Control-structures"></a>
 
@@ -34,7 +34,7 @@ Multiple conditions in several idented lines
 <?php
 if ($test1) {
      for ($i=0 ; $i<$end ; $i++) {
-          echo "test ".( $i<10 ? "0$i" : $i )."<br>";
+          echo "test ".( $i<10 ? "0$i": $i )."<br>";
      }
 }
 
@@ -46,15 +46,15 @@ if ($a==$b
 }
 
 switch ($test2) {
-     case 1 :
+     case 1:
           echo "Case 1";
           break;
 
-     case 2 :
+     case 2:
           echo "Case 2";
-          // No break here : because...
+          // No break here: because...
 
-     default :
+     default:
           echo "Default Case";
 }
 ```
@@ -86,9 +86,9 @@ Short tag not allowed. Use complet tags.
 
 ```
 
-STATE : accepted
+STATE: accepted
 
-TODO : nothing
+TODO: nothing
 
 <a name="Functions"></a>
 
@@ -113,9 +113,9 @@ If the static function is
 - in parent class => parent::  
 - in another class => ClassName::
 
-STATE : accepted
+STATE: accepted
 
-TODO : check all functions
+TODO: check all functions
 
 <a name="Class"></a>
 
@@ -130,9 +130,9 @@ class [[ExampleAuthentification]] {
 
 ```
 
-STATE : accepted
+STATE: accepted
 
-TODO : check all classes
+TODO: check all classes
 
 <a name="Variables"></a>
 
@@ -160,7 +160,7 @@ $users_groups = array('glpi', 'glpi2', 'glpi3');
 $CFG_GLPI = array();
 ```
 
-STATE : accepted
+STATE: accepted
 
 <a name="Variable-types"></a>
 
@@ -249,11 +249,11 @@ Variable types for use in [DocBlocks](/projects/glpi/wiki/DocBlocks?parent=Codin
 </table>
 
 Inserting comment in source code for doxygen.  
-Result : full doc for variables, functions, classes...
+Result: full doc for variables, functions, classes...
 
-STATE : accepted
+STATE: accepted
 
-TODO : check all source code
+TODO: check all source code
 
 <a name="quotes-double-quotes"></a>
 
@@ -263,22 +263,22 @@ TODO : check all source code
 echo 'toto'.$test.' est vivant';
 `
 
-After reading bench about strings : [http://www.estvideo.net/dew/index/page/phpbench](http://www.estvideo.net/dew/index/page/phpbench)  
+After reading bench about strings: [http://www.estvideo.net/dew/index/page/phpbench](http://www.estvideo.net/dew/index/page/phpbench)  
 - Best choice seems to be simple quote.  
-ex : echo 'toto' not echo "toto"  
+ex: echo 'toto' not echo "toto"  
 - best is to concat vars and string.  
-ex : echo 'toto'.$test.' est vivant.'  
+ex: echo 'toto'.$test.' est vivant.'  
 - Best choice between echo and print is echo.
 
-    - Best choice to construct string before make echo, result : decrease number of use echo.
+    - Best choice to construct string before make echo, result: decrease number of use echo.
 
 Performance says to use simple quotes but it make using \n slower (using a constant)
 
-**Conclusion : Use double quotes (more lisible)**
+**Conclusion: Use double quotes (more lisible)**
 
-STATE : accepted
+STATE: accepted
 
-TODO : check all source code
+TODO: check all source code
 
 <a name="Files"></a>
 
@@ -286,24 +286,24 @@ TODO : check all source code
 
 Name in lower case.
 
-Maximum line length : 100 characters
+Maximum line length: 100 characters
 
-STATE : accepted
+STATE: accepted
 
-TODO : check all files
+TODO: check all files
 
 <a name="Constants"></a>
 
 ## Constants[¶](#Constants)
 
-Capital letter :
+Capital letter:
 
 `COMPUTER_TYPE
 `
 
-STATE : accepted
+STATE: accepted
 
-TODO : check all constants
+TODO: check all constants
 
 <a name="MySQL"></a>
 
@@ -335,9 +335,9 @@ $query = "INSERT INTO `glpi_alerts`
           VALUE ('contract', '5', '2', NOW())";
 ```
 
-STATE : accepted
+STATE: accepted
 
-TODO : check all source code
+TODO: check all source code
 
 <a name="PHP"></a>
 
