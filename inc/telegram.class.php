@@ -119,8 +119,6 @@ class PluginTelegram extends CommonDBTM {
          date('Y-m-d H:i:s', $data['date']),
          $data['text']
       );
-
-      print_r($data);
    }
 
    private function insert_user($user_id, $first_name, $last_name, $username) {
