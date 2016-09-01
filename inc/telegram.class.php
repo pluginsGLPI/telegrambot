@@ -60,7 +60,13 @@ class PluginTelegram extends CommonDBTM {
    }
 
    public function handle_get_updates() {
-      $messages = $this->get_updates();
+      global $DB;
+
+      $query = "SELECT MAX(`update_id`) AS `update_id` FROM `glpi_plugin_telegrambot_messages`";
+      $result = $DB->query($query);
+      $last_update_id = 1 + (int) $DB->result($result, 0, 'update_id');
+
+      $messages = $this->get_updates($last_update_id);
 
       if($messages['ok']) {
          foreach ($messages['result'] as $key => $value) {
@@ -75,7 +81,7 @@ class PluginTelegram extends CommonDBTM {
                'username'   => $value['message']['from']['username']
             );
 
-            $this->proccess_update($data);
+            $this->process_update($data);
          }
       }
    }
@@ -98,8 +104,46 @@ class PluginTelegram extends CommonDBTM {
       return json_decode($response, true);
    }
 
-   private function proccess_update($data) {
-      // TODO
+   private function process_update($data) {
+      $this->insert_user(
+         $data['user_id'],
+         $data['first_name'],
+         $data['last_name'],
+         $data['username']
+      );
+
+      $this->insert_message(
+         $data['update_id'],
+         $data['message_id'],
+         $data['user_id'],
+         date('Y-m-d H:i:s', $data['date']),
+         $data['text']
+      );
+   }
+
+   private function insert_user($user_id, $first_name, $last_name, $username) {
+      global $DB;
+
+      $result = $DB->query("SELECT * FROM `glpi_plugin_telegrambot_users` WHERE `id` = $user_id");
+      $user_exists = $DB->numrows($result);
+
+      if(!$user_exists) {
+         $query = "INSERT INTO `glpi_plugin_telegrambot_users`
+                  (`id`, `first_name`, `last_name`, `username`)
+                  VALUES($user_id, '$first_name', '$last_name', '$username')";
+
+         $DB->query($query);
+      }
+   }
+
+   private function insert_message($update_id, $message_id, $user_id, $date, $text) {
+      global $DB;
+
+      $query = "INSERT INTO `glpi_plugin_telegrambot_messages`
+      (`update_id`, `message_id`, `user_id`, `date`, `text`)
+      VALUES($update_id, $message_id, $user_id, '$date', '$text')";
+
+      $DB->query($query);
    }
 }
 
