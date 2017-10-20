@@ -32,6 +32,20 @@
  * @return boolean
  */
 function plugin_telegrambot_install() {
+   global $DB;
+
+   $DB->runFile(GLPI_ROOT . '/plugins/telegrambot/db/install.sql');
+
+   Config::setConfigurationValues('core', ['notifications_websocket' => 0]);
+   Config::setConfigurationValues('plugin:telegrambot', ['token' => '', 'bot_username' => '']);
+
+   CronTask::register(
+      'PluginTelegrambotCron',
+      'messagelistener',
+      MINUTE_TIMESTAMP,
+      array('comment' => '', 'mode' => CronTask::MODE_EXTERNAL)
+   );
+
    return true;
 }
 
@@ -41,5 +55,20 @@ function plugin_telegrambot_install() {
  * @return boolean
  */
 function plugin_telegrambot_uninstall() {
+   global $DB;
+   $DB->runFile(GLPI_ROOT . '/plugins/telegrambot/db/uninstall.sql');
+
+   $config = new Config();
+   $config->deleteConfigurationValues('core', ['notifications_websocket']);
+   $config->deleteConfigurationValues('plugin:telegrambot', ['token', 'bot_username']);
+
    return true;
+}
+
+function add_username_field(array $params) {
+   $item = $params['item'];
+
+   if ($item->getType() == 'User') {
+      PluginTelegrambotUser::showUsernameField($item);
+   }
 }

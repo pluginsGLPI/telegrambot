@@ -38,6 +38,19 @@ function plugin_init_telegrambot() {
    global $PLUGIN_HOOKS;
 
    $PLUGIN_HOOKS['csrf_compliant']['telegrambot'] = true;
+   $PLUGIN_HOOKS['post_item_form']['telegrambot'] = 'add_username_field';
+   $PLUGIN_HOOKS['item_add']['telegrambot'] = array('User' => array('PluginTelegrambotUser', 'item_add_user'));
+   $PLUGIN_HOOKS['pre_item_update']['telegrambot'] = array('User' => array('PluginTelegrambotUser', 'item_update_user'));
+
+   $plugin = new Plugin();
+
+   if ($plugin->isActivated('telegrambot')) {
+      Notification_NotificationTemplate::registerMode(
+         Notification_NotificationTemplate::MODE_WEBSOCKET,
+         __('Telegram', 'plugin_telegrambot'),
+         'telegrambot'
+      );
+   }
 }
 
 /**

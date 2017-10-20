@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_users`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_request_limiter`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_botan_shortener`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_conversation`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_telegram_update`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_edited_message`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_callback_query`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_message`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_chosen_inline_result`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_inline_query`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_user_chat`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_chat`;
+DROP TABLE IF EXISTS `glpi_plugin_telegrambot_user`;
