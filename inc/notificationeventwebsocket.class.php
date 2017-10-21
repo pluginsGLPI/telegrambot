@@ -38,7 +38,6 @@ class PluginTelegrambotNotificationEventWebsocket
       $field = self::getTargetFieldName();
 
       if (!isset($data[$field])) {
-         //Missing users_id; set to null
          $data[$field] = null;
       }
 
@@ -46,17 +45,14 @@ class PluginTelegrambotNotificationEventWebsocket
    }
 
    static public function canCron() {
-      // notifications are pulled from web browser, it must not be handled from cron
       return false;
    }
 
    static public function getAdminData() {
-      // since admin cannot be logged in; no ajax notifications for global admin
       return false;
    }
 
    static public function getEntityAdminsData($entity) {
-      // since entities admin cannot be logged in; no ajax notifications for them
       return false;
    }
 
@@ -64,6 +60,7 @@ class PluginTelegrambotNotificationEventWebsocket
       Toolbox::logDebug(__METHOD__ . ' should not be called!');
       return false;
    }
+
 }
 
 ?>

@@ -71,6 +71,7 @@ class PluginTelegrambotNotificationWebsocketSetting extends NotificationSetting 
       echo $out;
       $this->showFormButtons($options);
    }
+
 }
 
 ?>

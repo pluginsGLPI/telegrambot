@@ -43,6 +43,7 @@ class PluginTelegrambotNotificationWebsocket implements NotificationInterface {
       PluginTelegrambotBot::sendMessage($to, $content);
       return true;
    }
+
 }
 
 ?>

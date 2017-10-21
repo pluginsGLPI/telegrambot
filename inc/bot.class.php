@@ -40,10 +40,7 @@ class PluginTelegrambotBot {
    }
 
    static public function sendMessage($to, $content) {
-      $user = new User();
-      $user->getFromDB($to);
-      $chat_id = self::getChatID($user->fields['phone']);
-
+      $chat_id = self::getChatID($to);
       $telegram = self::getTelegramInstance();
       $result = Request::sendMessage(['chat_id' => $chat_id, 'text' => $content]);
    }
@@ -62,19 +59,25 @@ class PluginTelegrambotBot {
       return $response;
    }
 
-   static public function getChatID($username) {
+   static public function getChatID($user_id) {
       global $DB;
 
       $chat_id = null;
 
       $result = $DB->request([
-         'SELECT' => 'id',
-         'FROM' => 'glpi_plugin_telegrambot_user',
-         'WHERE' => ['username' => $username]
+         'FROM' => 'glpi_plugin_telegrambot_users',
+         'INNER JOIN' => [
+            'glpi_plugin_telegrambot_user' => [
+               'FKEY' => [
+                  'glpi_plugin_telegrambot_users' => 'username',
+                  'glpi_plugin_telegrambot_user' => 'username'
+               ]
+            ]
+         ]
       ]);
 
       if ($row = $result->next()) {
-        $chat_id = $row['id'];
+         $chat_id = $row['id'];
       }
 
       return $chat_id;

@@ -6,7 +6,7 @@ Session::checkRight('config', UPDATE);
 $notificationwebsocket = new PluginTelegrambotNotificationWebsocketSetting();
 
 // TODO
-if (!empty($_POST['test_sms_send'])) {
+if (!empty($_POST['test_webhook_send'])) {
    PluginTelegrambotNotificationWebsocket::testNotification();
    Html::back();
 } else if (!empty($_POST['update'])) {

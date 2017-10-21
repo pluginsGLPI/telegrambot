@@ -66,7 +66,7 @@ function plugin_version_telegrambot() {
       'author'         => '<a href="http://trulymanager.com" target="_blank">Truly Systems</a>',
       'license'        => 'GPLv2+',
       'homepage'       => 'https://github.com/pluginsGLPI/telegrambot',
-      'minGlpiVersion' => '9.1'
+      'minGlpiVersion' => '9.2'
    ];
 }
 
@@ -78,11 +78,11 @@ function plugin_version_telegrambot() {
  */
 function plugin_telegrambot_check_prerequisites() {
    // Strict version check (could be less strict, or could allow various version)
-   if (version_compare(GLPI_VERSION, '9.1', 'lt')) {
+   if (version_compare(GLPI_VERSION, '9.2', 'lt')) {
       if (method_exists('Plugin', 'messageIncompatible')) {
-         echo Plugin::messageIncompatible('core', '9.1');
+         echo Plugin::messageIncompatible('core', '9.2');
       } else {
-         echo "This plugin requires GLPI >= 9.1";
+         echo "This plugin requires GLPI >= 9.2";
       }
       return false;
    }

@@ -42,7 +42,7 @@ function plugin_telegrambot_install() {
    CronTask::register(
       'PluginTelegrambotCron',
       'messagelistener',
-      MINUTE_TIMESTAMP,
+      5 * MINUTE_TIMESTAMP,
       array('comment' => '', 'mode' => CronTask::MODE_EXTERNAL)
    );
 
