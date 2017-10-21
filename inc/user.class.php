@@ -70,5 +70,3 @@ class PluginTelegrambotUser extends CommonDBTM {
    }
 
 }
-
-?>

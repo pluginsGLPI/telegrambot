@@ -73,5 +73,3 @@ class PluginTelegrambotNotificationWebsocketSetting extends NotificationSetting 
    }
 
 }
-
-?>

@@ -45,5 +45,3 @@ class PluginTelegrambotNotificationWebsocket implements NotificationInterface {
    }
 
 }
-
-?>

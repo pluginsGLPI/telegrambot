@@ -25,5 +25,3 @@ Html::header(
 $notificationwebsocket->display(array('id' => 1));
 
 Html::footer();
-
-?>
