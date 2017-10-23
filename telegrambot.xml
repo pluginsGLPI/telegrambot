@@ -8,12 +8,10 @@
       <short>
          <!-- Add as many lang tag you want -->
          <en>TelegramBot GLPI plugin.</en>
-         <fr>Plugin GLPI TelegramBot</fr>
       </short>
       <long>
          <!-- Add as many lang tag you want -->
-         <en>A long description for TelegramBot GLPI plugin.</en>
-         <fr>Un description longue pour le plugin GLPI TelegramBot</fr>
+         <en>Telegram bot for GLPI</en>
       </long>
    </description>
    <homepage>https://github.com/pluginsGLPI/telegrambot</homepage>
@@ -22,34 +20,28 @@
    <readme>https://github.com/pluginsGLPI/telegrambot/blob/master/README.md</readme>
    <authors>
       <!-- Add as many author tag you want -->
-      <author>Teclib'</author>
+      <author>Truly Systems</author>
    </authors>
    <versions>
       <!-- Add as many version tag you want -->
       <version>
          <num>2.0.0</num>
          <!-- Add as many compatibility tag you want -->
-         <compatibility>9.1.2</compatibility>
-         <compatibility>9.1.1</compatibility>
-         <compatibility>9.1</compatibility>
+         <compatibility>9.2</compatibility>
       </version>
    </versions>
    <langs>
       <!-- Add as many lang tag you want -->
       <lang>en_GB</lang>
-      <lang>fr_FR</lang>
    </langs>
    <license>GPL V3+</license>
-   <!--tags>
+   <tags>
       <en>
-         <tag>One tag</tag>
-         <tag>Another tag</tag>
+         <tag>Telegram</tag>
+         <tag>Notification</tag>
+         <tag>Message</tag>
       </en>
-      <fr>
-         <tag>Un tag</tag>
-         <tag>Un autre tag</tag>
-      </fr>
-   </tags-->
+   </tags>
    <!--screenshots>
       <screenshot>https://github.com/pluginsGLPI/fields/raw/master/screenshot.png</screenshot>
       <screenshot>https://github.com/pluginsGLPI/fields/raw/master/screenshot2.png</screenshot>
