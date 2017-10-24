@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_user` (
 
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_chat` (
   `id` bigint COMMENT 'Unique user or chat identifier',
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_chat` (
 
   PRIMARY KEY (`id`),
   KEY `old_id` (`old_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_user_chat` (
   `user_id` bigint COMMENT 'Unique user identifier',
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_user_chat` (
 
   FOREIGN KEY (`user_id`) REFERENCES `glpi_plugin_telegrambot_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`chat_id`) REFERENCES `glpi_plugin_telegrambot_chat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_inline_query` (
   `id` bigint UNSIGNED COMMENT 'Unique identifier for this query',
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_inline_query` (
   KEY `user_id` (`user_id`),
 
   FOREIGN KEY (`user_id`) REFERENCES `glpi_plugin_telegrambot_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_chosen_inline_result` (
   `id` bigint UNSIGNED AUTO_INCREMENT COMMENT 'Unique identifier for this entry',
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_chosen_inline_result` (
   KEY `user_id` (`user_id`),
 
   FOREIGN KEY (`user_id`) REFERENCES `glpi_plugin_telegrambot_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_message` (
   `chat_id` bigint COMMENT 'Unique chat identifier',
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_message` (
   FOREIGN KEY (`reply_to_chat`, `reply_to_message`) REFERENCES `glpi_plugin_telegrambot_message` (`chat_id`, `id`),
   FOREIGN KEY (`forward_from`) REFERENCES `glpi_plugin_telegrambot_user` (`id`),
   FOREIGN KEY (`left_chat_member`) REFERENCES `glpi_plugin_telegrambot_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_callback_query` (
   `id` bigint UNSIGNED COMMENT 'Unique identifier for this query',
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_callback_query` (
 
   FOREIGN KEY (`user_id`) REFERENCES `glpi_plugin_telegrambot_user` (`id`),
   FOREIGN KEY (`chat_id`, `message_id`) REFERENCES `glpi_plugin_telegrambot_message` (`chat_id`, `id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_edited_message` (
   `id` bigint UNSIGNED AUTO_INCREMENT COMMENT 'Unique identifier for this entry',
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_edited_message` (
   FOREIGN KEY (`chat_id`) REFERENCES `glpi_plugin_telegrambot_chat` (`id`),
   FOREIGN KEY (`chat_id`, `message_id`) REFERENCES `glpi_plugin_telegrambot_message` (`chat_id`, `id`),
   FOREIGN KEY (`user_id`) REFERENCES `glpi_plugin_telegrambot_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_telegram_update` (
   `id` bigint UNSIGNED COMMENT 'Update''s unique identifier',
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_telegram_update` (
   FOREIGN KEY (`chosen_inline_result_id`) REFERENCES `glpi_plugin_telegrambot_chosen_inline_result` (`id`),
   FOREIGN KEY (`callback_query_id`) REFERENCES `glpi_plugin_telegrambot_callback_query` (`id`),
   FOREIGN KEY (`edited_message_id`) REFERENCES `glpi_plugin_telegrambot_edited_message` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_conversation` (
   `id` bigint(20) unsigned AUTO_INCREMENT COMMENT 'Unique identifier for this entry',
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_conversation` (
 
   FOREIGN KEY (`user_id`) REFERENCES `glpi_plugin_telegrambot_user` (`id`),
   FOREIGN KEY (`chat_id`) REFERENCES `glpi_plugin_telegrambot_chat` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_botan_shortener` (
   `id` bigint UNSIGNED AUTO_INCREMENT COMMENT 'Unique identifier for this entry',
@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_botan_shortener` (
   PRIMARY KEY (`id`),
 
   FOREIGN KEY (`user_id`) REFERENCES `glpi_plugin_telegrambot_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_request_limiter` (
   `id` bigint UNSIGNED AUTO_INCREMENT COMMENT 'Unique identifier for this entry',
@@ -226,4 +226,4 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_telegrambot_request_limiter` (
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Entry date creation',
 
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM CHARSET=utf8 COLLATE=utf8_unicode_ci;
