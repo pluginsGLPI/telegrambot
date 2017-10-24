@@ -2,9 +2,18 @@
 
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-blue.svg)](https://telegram.me/tgbotglpi)
 
+## Video Preview
+[![Everything Is AWESOME](http://img.youtube.com/vi/TKqIpIaAIAE/0.jpg)](https://youtu.be/TKqIpIaAIAE)
+
 ## Roadmap
 
  - [ ] Support group notification.
+
+## Documentation
+WIKI: https://github.com/pluginsGLPI/telegrambot/wiki
+
+## L10N
+This plugin is on Transifex - Help us to translate : https://www.transifex.com/pluginsGLPI/glpi-telegrambot/dashboard
 
 ## Contributing
 
@@ -14,11 +23,6 @@
 * Work on a new branch on your own fork
 * Open a PR that will be reviewed by a developer
 
-## Documentation
-WIKI: https://github.com/pluginsGLPI/telegrambot/wiki
-
-## L10N
-This plugin is on Transifex - Help us to translate : https://www.transifex.com/pluginsGLPI/glpi-telegrambot/dashboard/
 
 ## License
 
