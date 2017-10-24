@@ -73,7 +73,8 @@ class PluginTelegrambotBot {
                   'glpi_plugin_telegrambot_user' => 'username'
                ]
             ]
-         ]
+         ],
+         'WHERE' => ['glpi_plugin_telegrambot_users.id' => $user_id]
       ]);
 
       if ($row = $result->next()) {
