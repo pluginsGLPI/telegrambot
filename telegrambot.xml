@@ -11,7 +11,13 @@
       </short>
       <long>
          <!-- Add as many lang tag you want -->
-         <en>Telegram bot for GLPI</en>
+         <en>
+            Telegram bot for GLPI.
+
+            Video Preview
+            --------
+            https://youtu.be/TKqIpIaAIAE
+         </en>
       </long>
    </description>
    <homepage>https://github.com/pluginsGLPI/telegrambot</homepage>
@@ -43,8 +49,11 @@
          <tag>Message</tag>
       </en>
    </tags>
-   <!--screenshots>
-      <screenshot>https://github.com/pluginsGLPI/fields/raw/master/screenshot.png</screenshot>
-      <screenshot>https://github.com/pluginsGLPI/fields/raw/master/screenshot2.png</screenshot>
-   </screenshots-->
+   <screenshots>
+      <screenshot>https://raw.githubusercontent.com/pluginsGLPI/telegrambot/master/screenshots/screenshot1.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/pluginsGLPI/telegrambot/master/screenshots/screenshot2.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/pluginsGLPI/telegrambot/master/screenshots/screenshot3.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/pluginsGLPI/telegrambot/master/screenshots/screenshot4.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/pluginsGLPI/telegrambot/master/screenshots/screenshot5.png</screenshot>
+   </screenshots>
 </root>
