@@ -1,6 +1,7 @@
 # Telegram Bot for GLPI
 
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-blue.svg)](https://telegram.me/tgbotglpi)
+[![Github All Releases](https://img.shields.io/github/downloads/pluginsGLPI/telegrambot/total.svg)]()
 
 ## Video Preview
 [![Everything Is AWESOME](http://img.youtube.com/vi/TKqIpIaAIAE/0.jpg)](https://youtu.be/TKqIpIaAIAE)
