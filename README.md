@@ -57,6 +57,6 @@ guidelines for [contributing](./CONTRIBUTING.md) and then check out one of our i
 
 ## Copying
 
-* **Code**: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License ([GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)).
+* **Name**: [GLPI](http://glpi-project.org/) is a registered trademark of [Teclib'](http://www.teclib-edition.com/en/).
+* **Code**: you can redistribute it and/or modifyit under the terms of the GNU General Public License ([GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)).
 * **Documentation**: released under Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
