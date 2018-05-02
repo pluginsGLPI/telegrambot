@@ -17,6 +17,7 @@
 * [Documentation](#documentation)
 * [Versioning](#versioning)
 * [Contact](#contact)
+* [Professional Services](#professional-services)
 * [Contribute](#contribute)
 * [Copying](#copying)
 
@@ -49,6 +50,12 @@ See [the tags section of our GitHub project](https://github.com/pluginsGLPI/tele
 ## Contact
 
 You can sen us a message through [Telegram](https://telegram.me/tgbotglpi).
+
+## Professional Services
+
+The GLPI Network services are available through our [Partner's Network](http://www.teclib-edition.com/en/partners/). We provide special training, bug fixes with editor subscription, contributions for new features, and more.
+
+Obtain a personalized service experience, associated with benefits and opportunities.
 
 ## Contribute
 
