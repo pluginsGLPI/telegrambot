@@ -68,7 +68,7 @@ class PluginTelegrambotBot {
 	     'SELECT' => 'users.username`,`user.id',
          'FROM' => 'glpi_plugin_telegrambot_users as users',
          'INNER JOIN' => [
-            'glpi_plugin_telegrambot_chat as user' => [
+            'glpi_plugin_telegrambot_user as user' => [
                'FKEY' => [
                   'users' => 'username',
                   'user' => 'username'
