@@ -65,16 +65,17 @@ class PluginTelegrambotBot {
       $chat_id = null;
 
       $result = $DB->request([
-         'FROM' => 'glpi_plugin_telegrambot_users',
+	     'SELECT' => 'users.username`,`user.id',
+         'FROM' => 'glpi_plugin_telegrambot_users as users',
          'INNER JOIN' => [
-            'glpi_plugin_telegrambot_user' => [
+            'glpi_plugin_telegrambot_chat as user' => [
                'FKEY' => [
-                  'glpi_plugin_telegrambot_users' => 'username',
-                  'glpi_plugin_telegrambot_user' => 'username'
+                  'users' => 'username',
+                  'user' => 'username'
                ]
             ]
          ],
-         'WHERE' => ['glpi_plugin_telegrambot_users.id' => $user_id]
+         'WHERE' => ['users.id' => $user_id]
       ]);
 
       if ($row = $result->next()) {
