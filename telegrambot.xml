@@ -8,6 +8,7 @@
       <short>
          <!-- Add as many lang tag you want -->
          <en>TelegramBot GLPI plugin.</en>
+         <cs>GLPI zásuvný modul TelegramBot.</cs>
       </short>
       <long>
          <!-- Add as many lang tag you want -->
@@ -18,6 +19,13 @@
             --------
             https://youtu.be/TKqIpIaAIAE
          </en>
+         <cs>
+            Automat (bot) pro posílání zpráv GLPI prostřednictvím komunikátoru Telegram.
+
+            Videoukázka
+            --------
+            https://youtu.be/TKqIpIaAIAE
+         </cs>
       </long>
    </description>
    <homepage>https://github.com/pluginsGLPI/telegrambot</homepage>
@@ -48,6 +56,12 @@
          <tag>Notification</tag>
          <tag>Message</tag>
       </en>
+      <cs>
+         <tag>Telegram</tag>
+         <tag>Bot</tag>
+         <tag>Oznámení</tag>
+         <tag>Zpráva</tag>
+      </cs>
    </tags>
    <screenshots>
       <screenshot>https://raw.githubusercontent.com/pluginsGLPI/telegrambot/master/screenshots/screenshot1.png</screenshot>
