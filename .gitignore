@@ -2,3 +2,4 @@ dist/
 vendor/
 .gh_token
 *.min.*
+.DS_Store
