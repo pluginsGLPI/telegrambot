@@ -7,12 +7,12 @@
    <description>
       <short>
          <!-- Add as many lang tag you want -->
-         <en>TelegramBot GLPI plugin.</en>
+         <en>TelegramBot 3.0 GLPI plugin.</en>
       </short>
       <long>
          <!-- Add as many lang tag you want -->
          <en>
-            Telegram bot for GLPI.
+            Telegram bot 3.0 for GLPI.
 
             Video Preview
             --------
@@ -31,9 +31,9 @@
    <versions>
       <!-- Add as many version tag you want -->
       <version>
-         <num>2.0.0</num>
+         <num>3.0.0</num>
          <!-- Add as many compatibility tag you want -->
-         <compatibility>9.2</compatibility>
+         <compatibility>9.4</compatibility>
       </version>
    </versions>
    <langs>
