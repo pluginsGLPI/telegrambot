@@ -13,7 +13,7 @@
 
 * [Synopsis](#synopsis)
 * [Build Status](#build-status)
-* [Updates Roadmap for version 3.0](#updates-roadmap-for-version-3.0)
+* [Updates Roadmap for version 3.0](#updates-roadmap-for-version-3)
 * [New TelegramBot Commands](#new-telegramBot-commands)
 * [Installation](#installation)
 * [Installation and Configuration step by step](#installation-and-configuration-step-by-step)
@@ -36,11 +36,11 @@ This Bot for GLPI allows you to get notifications on Telegram when a ticket is c
 
 ## Updates Roadmap for version 3.0
 
- - [ ] New Ticket.
- - [ ] Search ticket.
- - [ ] New followup.
- - [ ] Support group notification.
- - [ ] Login.
+ - [x] New Ticket.
+ - [x] Search ticket.
+ - [x] New followup.
+ - [x] Support group notification.
+ - [x] Login.
 
 ## New TelegramBot Commands:
 **Commands List:**
@@ -53,6 +53,7 @@ Group chat Login Command is forbidden.
 /searchticket - Search for a ticket on GLPI via TelegramBot.
 
 For exact command help type: /help <command>
+Or just type the command name: /<command>
 ```
 
 ## Installation
