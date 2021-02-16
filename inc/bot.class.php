@@ -40,19 +40,22 @@ class PluginTelegrambotBot {
    }
 
    static public function sendMessage($to, $content) {
+      global $DB;
+
       $test_conn = self::isSiteAvailable("https://api.telegram.org/", 2) ? true : false;
       if (!$test_conn) {
-         $logfile="/var/www/glpi/files/_log/telegrambot.log";
+         $logfile = GLPI_LOG_DIR."/telegrambot.log";
          if (!file_exists($logfile)) {
             $newfile = fopen($logfile, 'w+');
-            fclose($newfile);
+            fclose($newfile); 
          }
          error_log(date("Y-m-d H:i:s")." - ERROR: Telegram API is unavailable now!\n", 3, $logfile);
          return;
+      } else {
+         $chat_id = self::getChatID($to);
+         $telegram = self::getTelegramInstance();
+         $result = Request::sendMessage(['chat_id' => $chat_id, 'text' => $content]);
       }
-      $chat_id = self::getChatID($to);
-      $telegram = self::getTelegramInstance();
-      $result = Request::sendMessage(['chat_id' => $chat_id, 'text' => $content]);
    }
 
    static public function getUpdates() {
@@ -112,27 +115,19 @@ class PluginTelegrambotBot {
       );
    }
 
-   /**
-     * URL availability check
-     *
-     * @param string $url URL to check
-     * @param int $timeout connection timeout in seconds
-     *
-     * @return bool true - URL available, false - not available
-     */
    static private function isSiteAvailable($url, $timeout) {
-      if (!filter_var($url, FILTER_VALIDATE_URL)) {
-         return false;
+      if(!filter_var($url, FILTER_VALIDATE_URL)){
+        return false;
       }
-
+  
       $curlInit = curl_init($url);
-      curl_setopt($curlInit, CURLOPT_CONNECTTIMEOUT, $timeout);
-      curl_setopt($curlInit, CURLOPT_HEADER, true);
-      curl_setopt($curlInit, CURLOPT_NOBODY, true);
-      curl_setopt($curlInit, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($curlInit,CURLOPT_CONNECTTIMEOUT,$timeout);
+      curl_setopt($curlInit,CURLOPT_HEADER,true);
+      curl_setopt($curlInit,CURLOPT_NOBODY,true);
+      curl_setopt($curlInit,CURLOPT_RETURNTRANSFER,true);
       $response = curl_exec($curlInit);
       curl_close($curlInit);
       return $response ? true : false;
-   }
+    }
 
 }
