@@ -37,7 +37,7 @@ function plugin_telegrambot_install() {
    $DB->runFile(GLPI_ROOT . '/plugins/telegrambot/db/install.sql');
 
    Config::setConfigurationValues('core', ['notifications_websocket' => 0]);
-   Config::setConfigurationValues('plugin:telegrambot', ['token' => '', 'bot_username' => '']);
+   Config::setConfigurationValues('plugin:telegrambot', ['token' => '', 'bot_username' => '', 'http_delay' => 2,'base_uri' => 'https://api.telegram.org','messagecount' => 20,'minutes_to_store_mess'=>20]);
 
    CronTask::register(
       'PluginTelegrambotCron',
@@ -60,7 +60,7 @@ function plugin_telegrambot_uninstall() {
 
    $config = new Config();
    $config->deleteConfigurationValues('core', ['notifications_websocket']);
-   $config->deleteConfigurationValues('plugin:telegrambot', ['token', 'bot_username']);
+   $config->deleteConfigurationValues('plugin:telegrambot', ['token', 'bot_username', 'http_delay','base_uri','messagecount']);
 
    return true;
 }

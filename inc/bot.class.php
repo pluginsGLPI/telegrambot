@@ -28,6 +28,7 @@
 
 require GLPI_ROOT . '/plugins/telegrambot/vendor/autoload.php';
 use Longman\TelegramBot\Request;
+use GuzzleHttp\Client;
 
 class PluginTelegrambotBot {
 
@@ -41,10 +42,16 @@ class PluginTelegrambotBot {
 
    static public function sendMessage($to, $content) {
       $chat_id = self::getChatID($to);
-      $telegram = self::getTelegramInstance();
-      $result = Request::sendMessage(['chat_id' => $chat_id, 'text' => $content]);
+//      $telegram = self::getTelegramInstance();
+//      Request::setClient (new Client(['base_uri' => 'https://api.telegram.org','timeout' =>  2]));    
+      Request::sendMessage(['chat_id' => $chat_id, 'text' => $content,'parse_mode'=>'Markdown']);
    }
 
+   static public function setTelegramBot() {
+       $telegram = self::getTelegramInstance();
+       Request::setClient (new Client(['base_uri' => self::getConfig('base_uri'),'timeout' =>  self::getConfig('http_delay')]));
+      }
+                              
    static public function getUpdates() {
       $response = 'ok';
 
@@ -87,8 +94,9 @@ class PluginTelegrambotBot {
    static private function getTelegramInstance() {
       $bot_api_key  = self::getConfig('token');
       $bot_username = self::getConfig('bot_username');
-
-      return new Longman\TelegramBot\Telegram($bot_api_key, $bot_username);
+      $telegrambotLongman = new Longman\TelegramBot\Telegram($bot_api_key, $bot_username);
+     
+      return $telegrambotLongman;
    }
 
    static private function getDBCredentials() {
