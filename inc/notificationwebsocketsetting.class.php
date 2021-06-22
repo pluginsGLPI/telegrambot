@@ -49,9 +49,12 @@ class PluginTelegrambotNotificationWebsocketSetting extends NotificationSetting 
 
    function showFormConfig($options = []) {
       global $CFG_GLPI;
-
+      $errorcount_limit = PluginTelegrambotBot::getConfig('messagecount');
+      $store_limit = PluginTelegrambotBot::getConfig('minutes_to_store_mess');
       $bot_token = PluginTelegrambotBot::getConfig('token');
       $bot_username = PluginTelegrambotBot::getConfig('bot_username');
+      $base_uri = PluginTelegrambotBot::getConfig('base_uri');
+      $http_delay = PluginTelegrambotBot::getConfig('http_delay');
 
       $out = "<form action='" . Toolbox::getItemTypeFormURL(__CLASS__) . "' method='post'>";
       $out .= "<div>";
@@ -66,6 +69,26 @@ class PluginTelegrambotNotificationWebsocketSetting extends NotificationSetting 
       $out .= "<tr class='tab_bg_2'>";
       $out .= "<td> " . __('Bot username') . "</td><td>";
       $out .= "<input type='text' name='bot_username' value='" . $bot_username . "' style='width: 100%'>";
+      $out .= "</td><td colspan='2'>&nbsp;</td></tr>";
+
+      $out .= "<tr class='tab_bg_2'>";
+      $out .= "<td> " . __('Number of attempts to send messages from query') . "</td><td>";
+      $out .= "<input type='text' name='errorcount_limit' value='" . $errorcount_limit . "' style='width: 100%'>";
+      $out .= "</td><td colspan='2'>&nbsp;</td></tr>";
+
+      $out .= "<tr class='tab_bg_2'>";
+      $out .= "<td> " . __('Delete message older than (min))') . "</td><td>";
+      $out .= "<input type='text' name='store_limit' value='" . $store_limit . "' style='width: 100%'>";
+      $out .= "</td><td colspan='2'>&nbsp;</td></tr>";
+
+      $out .= "<tr class='tab_bg_2'>";
+      $out .= "<td> " . __('Base URI(telegram)') . "</td><td>";
+      $out .= "<input type='text' name='base_uri' value='" . $base_uri . "' style='width: 100%'>";
+      $out .= "</td><td colspan='2'>&nbsp;</td></tr>";
+
+      $out .= "<tr class='tab_bg_2'>";
+      $out .= "<td> " . __('Delay of http request(sec)') . "</td><td>";
+      $out .= "<input type='text' name='http_delay' value='" . $http_delay . "' style='width: 100%'>";
       $out .= "</td><td colspan='2'>&nbsp;</td></tr>";
 
       echo $out;
