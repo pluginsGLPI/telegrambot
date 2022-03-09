@@ -23,7 +23,7 @@
 
 ## Synopsis
 
-This Bot for GLPI allows you to get notifications on Telegram when a ticket is created on GLPI, keeping you up to date with what's happening in your IT infrastructure..
+This Bot for GLPI allows you to get notifications on Telegram when a ticket is created on GLPI, keeping you up to date with what's happening in your IT infrastructure.
 
 ## Build Status
 
@@ -49,7 +49,7 @@ See [the tags section of our GitHub project](https://github.com/pluginsGLPI/tele
 
 ## Contact
 
-You can sen us a message through [Telegram](https://telegram.me/tgbotglpi).
+You can send us a message through [Telegram](https://telegram.me/tgbotglpi).
 
 ## Professional Services
 
